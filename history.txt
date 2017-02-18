@@ -3228,6 +3228,17 @@ http://snap.berkeley.edu/run#cloud:Username=jens&ProjectName=rotation
 * BYOB: Disabled hover-help for custom blocks (some people find it annoying)
 * GUI: Hide setting for “prefer smooth animations” (now - mostly - redundant)
 
+==========================================
+START OF CODIMEO - MEO-STUDIO
+==========================================
+== v0.1 ===
+
+170127
+------
+* Added Dates and Strings libraries, Thanks NBig (Noé Bigorre)
+* Added simple cryptographic library used only for demo purposes
+* Changed favicon
+
 
 == v4.10 === (in development)
 
