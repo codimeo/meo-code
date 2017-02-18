@@ -1,6 +1,6 @@
-nbig-crypt-decrypt.xml  Simple cryptography demo blocks by Nbig
-nbig-dates.xml  Date utilities by NBig
-nbig-strings.xml  String utilities by NBig
+nbig-crypt-decrypt.xml	Simple cryptography demo blocks by Nbig
+nbig-dates.xml	Date utilities by NBig
+nbig-strings.xml	String utilities by NBig
 iteration-composition.xml	Iteration, composition
 list-utilities.xml	List utilities
 stream-tools.xml	Streams (lazy lists)
