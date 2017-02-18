@@ -1,12 +1,11 @@
 
-Snap! Build Your Own Blocks
+Meo-Studio, inspired by Snap! Build Your Own Blocks (http://snap.berkeley.edu)
 
-http://snap.berkeley.edu
+http://meo.codimeo.com
 
-a visual, blocks based programming language
-inspired by Scratch
+a visual, blocks based programming language inspired by Scratch
 
-written by Jens Mönig and Brian Harvey
+initially written by Jens Mönig and Brian Harvey
 jens@moenig.org, bh@cs.berkeley.edu
 
 Copyright (C) 2016 by Jens Mönig and Brian Harvey
