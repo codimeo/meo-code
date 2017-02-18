@@ -3240,7 +3240,7 @@ START OF CODIMEO - MEO-STUDIO
 * Changed favicon
 
 
-== v4.10 === (in development)
+== v4.10 === (in development SNAP)
 
 Features:
 * auto-wrapping of C-slots
