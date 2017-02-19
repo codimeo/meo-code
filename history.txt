@@ -3236,8 +3236,23 @@ START OF CODIMEO - MEO-STUDIO
 170127
 ------
 * Added Dates and Strings libraries, Thanks NBig (Noé Bigorre)
-* Added simple cryptographic library used only for demo purposes
+* Added simple cryptographic library used only for demo purposes, Thanks NBig
+* Added TinyWebDB library to demonstrate API binding 
 * Changed favicon
+
+== v0.2 ===
+
+Features:
+* REST API wrappers <== should agree on a good restful documentation 
+like :
+- SWAGGER.io (http://swagger.io/specification/)
+- JSON:API
+* Add IoT libraries
+* Add some common business libraries ==> pro use
+
+Fixes:
+* Cloud signup, signin and projects' upload
+* Change UI to stick to Codimeo colors and layout guidelines
 
 
 == v4.10 === (in development SNAP)
