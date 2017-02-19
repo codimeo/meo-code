@@ -1,28 +1,13 @@
+Meo-Studio inspired by SNAP ! Buil Your Own Blocks
 
-Snap! Build Your Own Blocks
+(C) Nizar AYED, 2017
 
-http://snap.berkeley.edu
+A codeless development plateform inteded for professionnals that
+would like to offer to their users and customers the ability
+to code without the hassle of development languages and technologies.
 
-a visual, blocks based programming language
-inspired by Scratch
+If you have any project or any need to a specific library, give us a shout 
+and we will find out a way to put it in place for you.
 
-written by Jens Mönig and Brian Harvey
-jens@moenig.org, bh@cs.berkeley.edu
-
-Copyright (C) 2016 by Jens Mönig and Brian Harvey
-
-Snap! is free software: you can redistribute it and/or modify
-it under the terms of the GNU Affero General Public License as
-published by the Free Software Foundation, either version 3 of
-the License, or (at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU Affero General Public License for more details.
-
-You should have received a copy of the GNU Affero General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-Want to use Snap! but scared by the open-source license? Get in touch with us,
-we'll make it work.
+Meo-Studio is a Codimeo product.
+Codimeo is a brand of Upgrade-Code.org.
