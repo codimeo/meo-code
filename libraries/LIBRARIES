@@ -1,8 +1,8 @@
-multiline.xml	Allow multi-line text input to a block
-tinywebdb.xml	TinyWebDB service (sample of an API binding)
 nbig-crypt-decrypt.xml	Simple cryptography demo blocks by Nbig
 nbig-dates.xml	Date utilities by NBig
 nbig-strings.xml	String utilities by NBig
+multiline.xml	Allow multi-line text input to a block
+tinywebdb.xml	TinyWebDB service (sample of an API binding)
 iteration-composition.xml	Iteration, composition
 list-utilities.xml	List utilities
 stream-tools.xml	Streams (lazy lists)
