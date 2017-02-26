@@ -62,5 +62,7 @@ Meo_Morph.prototype.init = function (isAutoFill) {
     Meo_Morph.uber.init.call(this);
 
     // override inherited properites:
-    this.logoURL = this.resourceURL('meo-logo-12x43.png');
+    this.logoURL = this.resourceURL('meo-logo-complet-24x95.png');
+    StageMorph.prototype.paletteColor = new Color(55, 0, 0);
+    StageMorph.prototype.paletteTextColor = new Color(0, 255, 0);
 }

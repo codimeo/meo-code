@@ -23,10 +23,10 @@
 		<script type="text/javascript" src="meo.js"></script>
 		<script type="text/javascript">
 			var world;
-			var ide_morph;
 			window.onload = function () {
 				world = new WorldMorph(document.getElementById('world'));
                 world.worldCanvas.focus();
+                world.isDevMode = true;
 				new Meo_Morph().openIn(world);
 				loop();
 			};
