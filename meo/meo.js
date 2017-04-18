@@ -51,6 +51,14 @@ Meo_Morph.prototype = new IDE_Morph();
 Meo_Morph.prototype.constructor = Meo_Morph;
 Meo_Morph.uber = IDE_Morph.prototype;
 
+// Meo-Cloud
+// @TODO : Make use of Meo-Cloud everywhere
+var MeoCloud = new Cloud(
+    'http://localhost/~nizarayed/passwordmail/'
+);
+
+SnapCloud = MeoCloud;
+
 // IDE_Morph instance creation:
 
 function Meo_Morph(isAutoFill) {

@@ -21,18 +21,21 @@
 		<script type="text/javascript" src="sha512.js"></script>
 		<script type="text/javascript" src="FileSaver.min.js"></script>
 		<script type="text/javascript" src="meo.js"></script>
+		<script type="text/javascript" src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+		<script type="text/javascript" src="dist/safe-buffer-browser.js"></script>
 		<script type="text/javascript">
-			var world;
+			var Buffer = buffer.Buffer
+			var world
 			window.onload = function () {
-				world = new WorldMorph(document.getElementById('world'));
-                world.worldCanvas.focus();
-                world.isDevMode = true;
-				new Meo_Morph().openIn(world);
-				loop();
-			};
+				world = new WorldMorph(document.getElementById('world'))
+		                world.worldCanvas.focus()
+				//world.isDevMode = true
+				new Meo_Morph().openIn(world)
+				loop()
+			}
 			function loop() {
-        		requestAnimationFrame(loop);
-				world.doOneCycle();
+				requestAnimationFrame(loop)
+				world.doOneCycle()
 			}
 		</script>
 	</head>
