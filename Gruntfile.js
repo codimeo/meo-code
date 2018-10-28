@@ -74,6 +74,6 @@ module.exports = function(grunt) {
     //grunt.loadNpmTasks('grunt-contrib-jshint');
 
     // Default task.
-    grunt.registerTask('default', ['jslint', 'watch', 'clean', 'copy']);
+    grunt.registerTask('default', ['eslint', 'clean', 'copy']);
 
 };
