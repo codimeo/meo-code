@@ -41,11 +41,13 @@ module.exports = function(grunt) {
                         cwd: 'src/',
                         src: '**',
                         dest: 'meo/',
-                        exclude: [
-                            'src/favicon.ico',
-                            'src/meo.js',
-                            'src/librairies/LIBRAIRIES',
-                        ]
+                        filter: function (filepath) {
+                            return [
+                                'src/favicon.ico',
+                                'src/meo.js',
+                                'src/librairies/LIBRAIRIES',
+                            ].includes(filepath);
+                        }
                     }
                 ]
             }
