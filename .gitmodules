@@ -1,3 +1,6 @@
 [submodule "NetsBlox"]
 	path = NetsBlox
 	url = https://github.com/NetsBlox/NetsBlox.git
+[submodule "Snap"]
+	path = Snap
+	url = https://github.com/jmoenig/Snap.git
