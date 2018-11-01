@@ -48,19 +48,15 @@ module.exports = function(grunt) {
                             'meo.js',
                             'index.html',
                             'meo.html',
-                            'dist/**',
-                            'libraries/**',
+                            /* 'dist/**',
+                            'libraries/**', */
                         ],
                         dest: 'meo/',
-                        filter: function (filepath) {
-                            console.log(filepath);
-                            console.log(![
-                                'src/libraries/LIBRARIES',
-                            ].includes(filepath));
+                        /* filter: function (filepath) {
                             return ![
                                 'src/libraries/LIBRARIES',
                             ].includes(filepath);
-                        }
+                        } */
                     },
                     {
                         expand: true,
@@ -68,9 +64,10 @@ module.exports = function(grunt) {
                         src: '**',
                         dest: 'meo/',
                         filter: function (filepath) {
-                            return [
+                            return ![
                                 'src/favicon.ico',
                                 'src/meo.js',
+                                'src/libraries/LIBRARIES',
                             ].includes(filepath);
                         }
                     }
