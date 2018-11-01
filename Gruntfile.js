@@ -15,7 +15,14 @@ module.exports = function(grunt) {
         '<%= pkg.author.name %>;' +
         ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n',
         // Task configuration.
-        clean:{
+        update_submodules: {
+            default: {
+                options: {
+                    params: "--init --recursive"
+                }
+            }
+        },
+        clean: {
             meo: {
                 src: [ 'meo' ],
             }
@@ -30,9 +37,17 @@ module.exports = function(grunt) {
                         dest: 'meo/',
                     },
                     {
+                        src: 'meo/index.html',
+                        dest: 'meo/index_snap.html',
+                    },
+                    {
+                        expand: true,
+                        cwd: 'src/',
                         src: [
-                            'src/favicon.ico',
-                            'src/meo.js',
+                            'favicon.ico',
+                            'meo.js',
+                            'index.html',
+                            'meo.html',
                         ],
                         dest: 'meo/',
                     },
@@ -70,6 +85,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-update-submodules');
     //grunt.loadNpmTasks('grunt-contrib-concat');
     //grunt.loadNpmTasks('grunt-contrib-uglify');
     //grunt.loadNpmTasks('grunt-contrib-nodeunit');
@@ -77,5 +93,10 @@ module.exports = function(grunt) {
 
     // Default task.
     grunt.registerTask('default', ['eslint', 'clean', 'copy']);
+    grunt.registerTask('build', ['eslint', 'clean', 'copy']);
+    grunt.registerTask(
+        'full_build', 
+        ['update_submodules', 'eslint', 'clean', 'copy']
+    );
 
 };
