@@ -48,19 +48,29 @@ module.exports = function(grunt) {
                             'meo.js',
                             'index.html',
                             'meo.html',
+                            'dist/**',
+                            'libraries/**',
                         ],
                         dest: 'meo/',
+                        filter: function (filepath) {
+                            console.log(filepath);
+                            console.log(![
+                                'src/libraries/LIBRARIES',
+                            ].includes(filepath));
+                            return ![
+                                'src/libraries/LIBRARIES',
+                            ].includes(filepath);
+                        }
                     },
                     {
                         expand: true,
-                        cwd: 'src/',
+                        cwd: 'src',
                         src: '**',
                         dest: 'meo/',
                         filter: function (filepath) {
                             return [
                                 'src/favicon.ico',
                                 'src/meo.js',
-                                'src/librairies/LIBRAIRIES',
                             ].includes(filepath);
                         }
                     }
@@ -77,7 +87,16 @@ module.exports = function(grunt) {
                     tasks: ['eslint'],
                 }
             }
-        }
+        },
+        concat:{
+            options: {
+                separator: '',
+            },
+            dist: {
+                src: ['meo/libraries/LIBRARIES', 'src/libraries/LIBRARIES'],
+                dest: 'meo/libraries/LIBRARIES',
+            },
+        },
     });
 
     // These plugins provide necessary tasks.
@@ -86,14 +105,14 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-update-submodules');
-    //grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-concat');
     //grunt.loadNpmTasks('grunt-contrib-uglify');
     //grunt.loadNpmTasks('grunt-contrib-nodeunit');
     //grunt.loadNpmTasks('grunt-contrib-jshint');
 
     // Default task.
-    grunt.registerTask('default', ['eslint', 'clean', 'copy']);
-    grunt.registerTask('build', ['eslint', 'clean', 'copy']);
+    grunt.registerTask('default', ['eslint', 'clean', 'copy', 'concat']);
+    grunt.registerTask('build', ['eslint', 'clean', 'copy', 'concat']);
     grunt.registerTask(
         'full_build', 
         ['update_submodules', 'eslint', 'clean', 'copy']
