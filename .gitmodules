@@ -4,3 +4,6 @@
 [submodule "Snap"]
 	path = Snap
 	url = https://github.com/jmoenig/Snap.git
+[submodule "snapCloud"]
+	path = snapCloud
+	url = https://github.com/bromagosa/snapCloud.git

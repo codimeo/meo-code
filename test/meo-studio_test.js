@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 'use strict';
 
 var meo_studio = require('../lib/meo-studio.js');
@@ -23,14 +24,14 @@ var meo_studio = require('../lib/meo-studio.js');
 */
 
 exports['awesome'] = {
-  setUp: function(done) {
+    setUp: function(done) {
     // setup here
-    done();
-  },
-  'no args': function(test) {
-    test.expect(1);
-    // tests here
-    test.equal(meo_studio.awesome(), 'awesome', 'should be awesome.');
-    test.done();
-  }
+        done();
+    },
+    'no args': function(test) {
+        test.expect(1);
+        // tests here
+        test.equal(meo_studio.awesome(), 'awesome', 'should be awesome.');
+        test.done();
+    }
 };
