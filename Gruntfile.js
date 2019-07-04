@@ -68,6 +68,7 @@ module.exports = function(grunt) {
                                 'src/favicon.ico',
                                 'src/meo.js',
                                 'src/libraries/LIBRARIES',
+                                'src/Examples/EXAMPLES',
                             ].includes(filepath);
                         }
                     }
@@ -89,9 +90,13 @@ module.exports = function(grunt) {
             options: {
                 separator: '',
             },
-            dist: {
+            libraries: {
                 src: ['meo/libraries/LIBRARIES', 'src/libraries/LIBRARIES'],
                 dest: 'meo/libraries/LIBRARIES',
+            },
+            examples: {
+                src: ['meo/Examples/EXAMPLES', 'src/Examples/EXAMPLES'],
+                dest: 'meo/Examples/EXAMPLES',
             },
         },
     });
@@ -112,7 +117,7 @@ module.exports = function(grunt) {
     grunt.registerTask('build', ['eslint', 'clean', 'copy', 'concat']);
     grunt.registerTask(
         'full_build', 
-        ['update_submodules', 'eslint', 'clean', 'copy']
+        ['update_submodules', 'eslint', 'clean', 'copy', 'concat']
     );
 
 };
