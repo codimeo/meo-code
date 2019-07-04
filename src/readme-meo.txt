@@ -1,4 +1,4 @@
-Lernings :
+Learnings :
 * sprite.allHatBlocksFor(message)[0]
 ==> list of all blocks "When message received" with input {message}
 
