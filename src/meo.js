@@ -31,11 +31,11 @@
 
 // Global settings /////////////////////////////////////////////////////
 
-/*global modules, IDE_Morph, StageMorph, Color*/
+/*global modules, IDE_Morph, StageMorph, Color, Cloud*/
 
 // Global stuff ////////////////////////////////////////////////////////
 
-modules.meo = "2017-February-24";
+modules.meo = "2020-Mars-25";
 
 // Declarations
 
@@ -51,11 +51,16 @@ Meo_Morph.uber = IDE_Morph.prototype;
 
 // Meo-Cloud
 // @TODO : Make use of Meo-Cloud everywhere
-// var MeoCloud = new Cloud(
-//     'http://localhost/~nizarayed/passwordmail/'
-// );
+Cloud.prototype.knownDomains = {
+    'Snap!Cloud' : 'https://cloud.snap.berkeley.edu',
+    'Snap!Cloud (cs10)' : 'https://snap-cloud.cs10.org',
+    'Snap!Cloud (staging)': 'https://snap-staging.cs10.org',
+    'MeoCloud' : 'http://meocloud.codimeo.com:8080',
+    'localhost': 'http://localhost:8080',
+    'localhost (secure)': 'https://localhost:4431'
+};
 
-// SnapCloud = MeoCloud;
+Cloud.prototype.defaultDomain = Cloud.prototype.knownDomains['MeoCloud'];
 
 // IDE_Morph instance creation:
 

@@ -32,6 +32,12 @@ module.exports = function(grunt) {
                 files: [
                     {
                         expand: true,
+                        cwd: 'snapCloud/',
+                        src: '**',
+                        dest: 'meoCloud/',
+                    },
+                    {
+                        expand: true,
                         cwd: 'Snap/',
                         src: '**',
                         dest: 'meo/',
@@ -59,12 +65,17 @@ module.exports = function(grunt) {
                         } */
                     },
                     {
+                        src: 'src/.env',
+                        dest: 'meoCloud/.env',
+                    },
+                    {
                         expand: true,
                         cwd: 'src',
                         src: '**',
                         dest: 'meo/',
                         filter: function (filepath) {
                             return ![
+                                'src/.env',
                                 'src/favicon.ico',
                                 'src/meo.js',
                                 'src/libraries/LIBRARIES',
