@@ -65,8 +65,12 @@ module.exports = function(grunt) {
                         } */
                     },
                     {
-                        src: 'src/.env',
+                        src: 'src/meoCloud/.env',
                         dest: 'meoCloud/.env',
+                    },
+                    {
+                        src: 'src/meoCloud/config.lua',
+                        dest: 'meoCloud/config.lua',
                     },
                     {
                         expand: true,
@@ -75,7 +79,6 @@ module.exports = function(grunt) {
                         dest: 'meo/',
                         filter: function (filepath) {
                             return ![
-                                'src/.env',
                                 'src/favicon.ico',
                                 'src/meo.js',
                                 'src/libraries/LIBRARIES',
