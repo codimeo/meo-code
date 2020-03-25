@@ -24,7 +24,8 @@ module.exports = function(grunt) {
         },
         clean: {
             meo: {
-                src: [ 'meo' ],
+                src: [ 'meo',
+                       'meoCloud' ],
             }
         },
         copy: {

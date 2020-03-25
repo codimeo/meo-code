@@ -1,6 +1,7 @@
 /node_modules/
 /out/
 /meo/
+/meoCloud/
 /.vscode
 .jshintrc
 package-lock.json
