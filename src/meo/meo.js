@@ -55,7 +55,7 @@ Cloud.prototype.knownDomains = {
     'Snap!Cloud' : 'https://cloud.snap.berkeley.edu',
     'Snap!Cloud (cs10)' : 'https://snap-cloud.cs10.org',
     'Snap!Cloud (staging)': 'https://snap-staging.cs10.org',
-    'MeoCloud' : 'http://meocloud.codimeo.com:8080',
+    'MeoCloud' : 'https://meocloud.codimeo.com',
     'localhost': 'http://localhost:8080',
     'localhost (secure)': 'https://localhost:4431'
 };

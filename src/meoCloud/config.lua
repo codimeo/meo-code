@@ -76,7 +76,7 @@ config({'production', 'staging'}, {
     secret = os.getenv('SESSION_SECRET_BASE'),
     code_cache = 'on',
 
-    log_directive = 'logs/error.log warn',
+    log_directive = 'logs/error.log error',
 
     -- TODO: See if we can turn this on without a big hit
     measure_performance = false
@@ -86,7 +86,10 @@ config('production', {
     site_name = 'MeoCloud',
     num_workers = 1,
     primary_nginx_config = 'http-only.conf',
-    secondary_nginx_config = 'include nginx.conf.d/ssl-production.conf;'
+--  secondary_nginx_config = 'include nginx.conf.d/ssl-production.conf;'
+    -- ssl not needed here because the connection is proxied with regular
+    -- nginx
+    secondary_nginx_config = ''
 })
 
 config('staging', {
@@ -94,5 +97,8 @@ config('staging', {
     -- the staging server is a low-cpu server.
     num_workers = 1,
     primary_nginx_config = 'http-only.conf',
-    secondary_nginx_config = 'include nginx.conf.d/ssl-staging.conf;'
+--  secondary_nginx_config = 'include nginx.conf.d/ssl-staging.conf;'
+    -- ssl not needed here because the connection is proxied with regular
+    -- nginx
+    secondary_nginx_config = ''
 })

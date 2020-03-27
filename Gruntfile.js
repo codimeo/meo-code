@@ -49,7 +49,7 @@ module.exports = function(grunt) {
                     },
                     {
                         expand: true,
-                        cwd: 'src/',
+                        cwd: 'src/meo',
                         src: [
                             'favicon.ico',
                             'meo.js',
@@ -66,24 +66,26 @@ module.exports = function(grunt) {
                         } */
                     },
                     {
+                        expand: true,
+                        cwd: 'src/meoCloud',
+                        src: '**',
+                        dest: 'meoCloud/',
+                    },
+                    {
                         src: 'src/meoCloud/.env',
                         dest: 'meoCloud/.env',
                     },
                     {
-                        src: 'src/meoCloud/config.lua',
-                        dest: 'meoCloud/config.lua',
-                    },
-                    {
                         expand: true,
-                        cwd: 'src',
+                        cwd: 'src/meo',
                         src: '**',
                         dest: 'meo/',
                         filter: function (filepath) {
                             return ![
-                                'src/favicon.ico',
-                                'src/meo.js',
-                                'src/libraries/LIBRARIES',
-                                'src/Examples/EXAMPLES',
+                                'src/meo/favicon.ico',
+                                'src/meo/meo.js',
+                                'src/meo/libraries/LIBRARIES',
+                                'src/meo/Examples/EXAMPLES',
                             ].includes(filepath);
                         }
                     }
@@ -92,7 +94,7 @@ module.exports = function(grunt) {
         },
         eslint: {
             target: [
-                'src/*.js',
+                'src/meo/*.js',
             ],
             watch: {
                 meo: {
@@ -106,11 +108,11 @@ module.exports = function(grunt) {
                 separator: '',
             },
             libraries: {
-                src: ['meo/libraries/LIBRARIES', 'src/libraries/LIBRARIES'],
+                src: ['meo/libraries/LIBRARIES', 'src/meo/libraries/LIBRARIES'],
                 dest: 'meo/libraries/LIBRARIES',
             },
             examples: {
-                src: ['meo/Examples/EXAMPLES', 'src/Examples/EXAMPLES'],
+                src: ['meo/Examples/EXAMPLES', 'src/meo/Examples/EXAMPLES'],
                 dest: 'meo/Examples/EXAMPLES',
             },
         },
@@ -134,5 +136,4 @@ module.exports = function(grunt) {
         'full_build', 
         ['update_submodules', 'eslint', 'clean', 'copy', 'concat']
     );
-
 };

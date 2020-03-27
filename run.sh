@@ -1,1 +1,4 @@
-cd /opt/snapCloud/ && sudo ./start.sh
+cd /opt/meoCloud/
+source .env
+echo "PORT $PORT"
+nf start app,emails
