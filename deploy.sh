@@ -28,6 +28,9 @@ deploy.sh meoDestination meoCloudDestination
 "
 }
 
+# build first
+npm run build
+
 # Exit if no arguments
 if [ $# -eq 0 ]; then
     usage >&2; exit 0 ;

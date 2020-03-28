@@ -1,4 +1,4 @@
-app: lapis server
+app: lapis server $LAPIS_ENVIRONMENT
 # db: postgres -D ${PG_DATA_DIR=/var/lib/postgresql/9.5/main}
 #frontend: cd site && Snippets/build.sh --watch
 # Install maildev with npm i -g maildev

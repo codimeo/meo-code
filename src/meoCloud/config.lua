@@ -34,6 +34,8 @@ config({'development', 'staging', 'production', 'test'}, {
     maintenance_mode = os.getenv('MAINTENANCE_MODE') or 'false'
 })
 
+print(config.mail_user)
+
 config({'development', 'test'}, {
     use_daemon = 'off',
     site_name = 'dev | MeoCloud',
@@ -68,15 +70,21 @@ config({'test'}, {
 })
 
 config({'production', 'staging'}, {
-    use_daemon = 'on',
+    use_daemon = os.getenv('DAEMON') or 'on',
     port = os.getenv('PORT') or 80,
     mail_smtp_port = 587,
     dns_resolver = '173.245.58.51 ipv6=off',
 
     secret = os.getenv('SESSION_SECRET_BASE'),
     code_cache = 'on',
+    
+    log_directive = 'stderr notice',
+    logging = {
+        queries = false,
+        requests = true
+    },
 
-    log_directive = 'logs/error.log error',
+--    log_directive = 'logs/error.log error',
 
     -- TODO: See if we can turn this on without a big hit
     measure_performance = false
