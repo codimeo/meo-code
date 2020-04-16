@@ -31,23 +31,11 @@
 
 // Global settings /////////////////////////////////////////////////////
 
-/*global modules, IDE_Morph, StageMorph, Color, Cloud*/
+/*global modules, Cloud, Color, IDE_Morph, Process, SpriteMorph, StageMorph*/
 
 // Global stuff ////////////////////////////////////////////////////////
 
 modules.meo = "2020-Mars-25";
-
-// Declarations
-
-var Meo_Morph = function (isAutoFill) {
-    this.init(isAutoFill);
-};
-
-// Meo_Morph inherits from IDE_Morph:
-
-Meo_Morph.prototype = new IDE_Morph();
-Meo_Morph.prototype.constructor = Meo_Morph;
-Meo_Morph.uber = IDE_Morph.prototype;
 
 // Meo-Cloud
 // @TODO : Make use of Meo-Cloud everywhere
@@ -62,6 +50,18 @@ Cloud.prototype.knownDomains = {
 
 Cloud.prototype.defaultDomain = Cloud.prototype.knownDomains['MeoCloud'];
 
+// Declarations
+
+var Meo_Morph = function (isAutoFill) {
+    this.init(isAutoFill);
+};
+
+// Meo_Morph inherits from IDE_Morph:
+
+Meo_Morph.prototype = new IDE_Morph();
+Meo_Morph.prototype.constructor = Meo_Morph;
+Meo_Morph.uber = IDE_Morph.prototype;
+
 // IDE_Morph instance creation:
 
 Meo_Morph.prototype.init = function () {
@@ -72,4 +72,68 @@ Meo_Morph.prototype.init = function () {
     this.logoURL = this.resourceURL("meo-logo-complet-24x95.png"); 
     StageMorph.prototype.paletteColor = new Color(55, 0, 0);
     StageMorph.prototype.paletteTextColor = new Color(0, 255, 0);
+
+    // Push new cateogries
+    SpriteMorph.prototype.categories.push("mqtt");
+    SpriteMorph.prototype.categories.push("tinywebdb");
+
+    // Push categories' colors
+    // @TODO : choose more appropriate colors
+    SpriteMorph.prototype.blockColor.mqtt = new Color(4, 148, 220);
+    SpriteMorph.prototype.blockColor.tinywebdb = new Color(4, 148, 220);
+};
+
+Meo_Morph.prototype.importLib = function (libName, libFileName) {
+    var libraryText, blocks,
+        myself = this;
+        //msg; 
+
+    // Add a library as a block category
+
+    // Import corresponding librairies
+    // WARNING : Librairies should mention the correct category
+    //           where they should appear
+
+    //msg = this.showMessage(localize('Loading') + ' ' + localize(libName));
+    libraryText = this.getURL(this.resourceURL('libraries', libFileName));
+
+    if (Process.prototype.isCatchingErrors) {
+        try {
+            blocks = this.serializer.loadBlocks(libraryText, myself.stage);
+        } catch (err) {
+            this.showMessage('Load failed: ' + err);
+            //console.log('Load failed: ' + err);
+        }
+    } else {
+        blocks = this.serializer.loadBlocks(libraryText, myself.stage);
+    }
+
+    blocks.forEach(function (def) {
+        def.receiver = myself.stage;
+        myself.stage.globalBlocks.push(def);
+        myself.stage.replaceDoubleDefinitionsFor(def);
+    });
+
+    //this.showMessage(
+    //    'Imported Blocks Module' + (libName ? ': ' + libName : '') + '.',
+    //    2
+    //);
+};
+
+Meo_Morph.prototype.openIn = function (world) {
+    var libName, libFileName;
+
+    Meo_Morph.uber.openIn.call(this, world);
+
+    // Import MQTT Library
+    libName = 'MQTT Library (OOP version)';
+    libFileName = 'mqtt-blocks-meo-v1.0.xml';
+    this.importLib(libName, libFileName);
+
+    libName = 'TinyWebDB service';
+    libFileName = 'tinywebdb-meo.xml';
+    this.importLib(libName, libFileName);
+
+    this.flushPaletteCache();
+    this.refreshPalette();
 };
