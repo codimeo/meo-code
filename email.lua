@@ -3,12 +3,12 @@ local mail = require "resty.mail"
 print("Start")
 
 local mailer, err = mail.new({
-    host = "smtp01.servage.net",
+    host = "mail.codimeo.com",
     port = 587,
     starttls = true,
     -- AUTH type ne fonctionne pas avec servage.net
     --auth_type = 'login',
-    username = "nizar.ayed@upgrade-code.org",
+    username = "nizar.ayed@codimeo.com",
     password = "11Janvier1996",
 })
 
@@ -21,7 +21,7 @@ else
 end
 
 local ok, err = mailer:send({   
-    from = "Master Splinter <test@meo.codimeo.com>",
+    from = "Master Splinter <noreply@meo.codimeo.com>",
     to = { "nizar.ayed@upgrade-code.org" },
     subject = "Pizza is here!",
     text = "There's pizza in the sewer.",
