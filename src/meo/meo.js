@@ -83,19 +83,15 @@ Meo_Morph.prototype.init = function () {
     SpriteMorph.prototype.blockColor.tinywebdb = new Color(4, 148, 220);
 };
 
-Meo_Morph.prototype.importLib = function (libName, libFileName) {
-    var libraryText, blocks,
+Meo_Morph.prototype.importLib = function (libraryText) {
+    var blocks,
         myself = this;
-        //msg; 
 
     // Add a library as a block category
 
     // Import corresponding librairies
-    // WARNING : Librairies should mention the correct category
-    //           where they should appear
-
-    //msg = this.showMessage(localize('Loading') + ' ' + localize(libName));
-    libraryText = this.getURL(this.resourceURL('libraries', libFileName));
+    // WARNING : Each block of the library should mention the correct category
+    //           where it should appear
 
     if (Process.prototype.isCatchingErrors) {
         try {
@@ -113,24 +109,17 @@ Meo_Morph.prototype.importLib = function (libName, libFileName) {
         myself.stage.globalBlocks.push(def);
         myself.stage.replaceDoubleDefinitionsFor(def);
     });
-
-    //this.showMessage(
-    //    'Imported Blocks Module' + (libName ? ': ' + libName : '') + '.',
-    //    2
-    //);
 };
 
 Meo_Morph.prototype.openIn = function (world) {
-    var libName, libFileName;
+    var libFileName;
 
     Meo_Morph.uber.openIn.call(this, world);
 
     // Import MQTT Library
-    libName = 'MQTT Library (OOP version)';
     libFileName = 'mqtt-blocks-meo-v1.0.xml';
-    this.importLib(libName, libFileName);
+    this.getURL(this.resourceURL('libraries', libFileName), this.importLib);
 
-    libName = 'TinyWebDB service';
     libFileName = 'tinywebdb-meo.xml';
-    this.importLib(libName, libFileName);
+    this.getURL(this.resourceURL('libraries', libFileName), this.importLib);
 };
