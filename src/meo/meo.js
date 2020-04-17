@@ -35,7 +35,7 @@
 
 // Global stuff ////////////////////////////////////////////////////////
 
-modules.meo = "2020-Mars-25";
+modules.meo = "2020-April-17";
 
 // Meo-Cloud
 // @TODO : Make use of Meo-Cloud everywhere
@@ -112,14 +112,14 @@ Meo_Morph.prototype.importLib = function (libraryText) {
 };
 
 Meo_Morph.prototype.openIn = function (world) {
-    var libFileName;
+    // var libFileName;
 
     Meo_Morph.uber.openIn.call(this, world);
 
     // Import MQTT Library
-    libFileName = 'mqtt-blocks-meo-v1.0.xml';
-    this.getURL(this.resourceURL('libraries', libFileName), this.importLib);
+    // libFileName = 'mqtt-blocks-meo-v1.0.xml';
+    // this.getURL(this.resourceURL('libraries', libFileName), this.importLib);
 
-    libFileName = 'tinywebdb-meo.xml';
-    this.getURL(this.resourceURL('libraries', libFileName), this.importLib);
+    // libFileName = 'tinywebdb-meo.xml';
+    // this.getURL(this.resourceURL('libraries', libFileName), this.importLib);
 };
