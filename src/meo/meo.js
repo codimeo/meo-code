@@ -133,7 +133,4 @@ Meo_Morph.prototype.openIn = function (world) {
     libName = 'TinyWebDB service';
     libFileName = 'tinywebdb-meo.xml';
     this.importLib(libName, libFileName);
-
-    this.flushPaletteCache();
-    this.refreshPalette();
 };
