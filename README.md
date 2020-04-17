@@ -1,57 +1,52 @@
-# meo-studio
+# MeoStudio
 
-Meo-Studio aims to become the world's most proficient Visual Coding environment
+MeoStudio aims to become the world's most proficient Visual Coding environment
 
-## Getting Started
-### On the server
-Install the module with: `npm install meo-studio`
+# Getting Started
 
-```javascript
-var meo_studio = require('meo-studio');
-meo_studio.awesome(); // "awesome"
+There are two components:
+- MeoStudio:    https://meo.codimeo.com
+- MeoCloud:     accessible via MeoStudio to store users' projects
+
+# Documentation
+
+## MeoStudio
+
+## MeoCloud
+
+### General
+The configuration is found in config.lua. Do not change the file but do the following:
+- Create .env file under MeoCloud root folder
+```
+$ nano .env
+```
+- Export in .env all the required parameters
+
+Here is an example of .env :
+```
+export LAPIS_ENVIRONMENT=development
+export DATABASE_URL=127.0.0.1:5432
+export DATABASE_USERNAME=cloud
+export DATABASE_PASSWORD=cloud123
+export DATABASE_NAME=cloud
+export MAIL_SMTP_USER=user@example.com
+export MAIL_SMTP_PASSWORD=Password
+export MAIL_SMTP_SERVER=smtp01.example.com
+export PORT=8080
+export DAEMON=off
+export PROJECT_STORAGE_PATH=/path/to/store
 ```
 
-### In the browser
-Download the [production version][min] or the [development version][max].
+I would advice to keep the server limited to localhost. And, configure the web server, Nginx or Apache, as a reverse proxy.
 
-[min]: https://raw.github.com/codimeo/meo-studio/master/dist/meo-studio.min.js
-[max]: https://raw.github.com/codimeo/meo-studio/master/dist/meo-studio.js
+### Recommendation
 
-In your web page:
-
-```html
-<script src="dist/meo-studio.min.js"></script>
-<script>
-awesome(); // "awesome"
-</script>
-```
-
-In your code, you can attach meo-studio's methods to any object.
-
-```html
-<script>
-var exports = Bocoup.utils;
-</script>
-<script src="dist/meo-studio.min.js"></script>
-<script>
-Bocoup.utils.awesome(); // "awesome"
-</script>
-```
-
-## Documentation
-_(Coming soon)_
-
-## Examples
-_(Coming soon)_
-
-## Contributing
-In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
-
-_Also, please don't edit files in the "dist" subdirectory as they are generated via Grunt. You'll find source code in the "lib" subdirectory!_
+It is recommended to keep the store outside the meoCloud folder. That way, it can be deleted and refreshed with upgrades without caring about 
+the stored users' data.
 
 ## Release History
-_(Nothing yet)_
+v1.0    : 6 Apr. 2020
 
 ## License
-Copyright (c) 2018 TopNiz  
+Copyright (c) 2020 Codimeo.com  
 Licensed under the MIT license.

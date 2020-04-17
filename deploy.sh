@@ -18,9 +18,12 @@ scriptPath="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 usage() {
     echo -n "
 USAGE:
-deploy.sh meoDestination meoCloudDestination
+deploy.sh [--mac-os] meoDestination meoCloudDestination
+
+    --mac-os                Deploy on mac and copy folders under ~/Sites
 
     Deploy the built folders to their destinations
+
     meoDestination:         parent folder where meo-studio should be deployed
     meoCloudDestination:    parent folder where meoCloud should be deployed
 
@@ -28,24 +31,26 @@ deploy.sh meoDestination meoCloudDestination
 "
 }
 
-# build first
-npm run build
-
 # Exit if no arguments
 if [ $# -eq 0 ]; then
     usage >&2; exit 0 ;
 fi
 
+# build first
+npm run build
+
 # meo folder : the first case if when deploy on mac os
-if [ -z $1 ]; then
+if [ $1 == "--mac-os" ]; then
 	cp -R ./meo ~/Sites
 	cp -R ./meoCloud ~/Sites
+	exit 0
 else
 	if [ -d "$1"/meo ]
 	then
 		rm -r $1/meo
 	fi
 	cp -R ./meo "$1"
+#	chown -R www-data:www-data $1/meo
 fi
 
 # meoCloud folder (if no 2nd argument then use the first destination folder)
@@ -64,3 +69,4 @@ else
 fi
 
 exit 0 # Exit cleanly
+
