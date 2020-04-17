@@ -50,7 +50,7 @@ else
 		rm -r $1/meo
 	fi
 	cp -R ./meo "$1"
-	chown -R _www:_www $1/meo
+#	chown -R www-data:www-data $1/meo
 fi
 
 # meoCloud folder (if no 2nd argument then use the first destination folder)
