@@ -112,14 +112,17 @@ Meo_Morph.prototype.importLib = function (libraryText) {
 };
 
 Meo_Morph.prototype.openIn = function (world) {
-    // var libFileName;
+    var libFileName, intervalHandle,
+        myself = this;
 
     Meo_Morph.uber.openIn.call(this, world);
 
     // Import MQTT Library
-    // libFileName = 'mqtt-blocks-meo-v1.0.xml';
-    // this.getURL(this.resourceURL('libraries', libFileName), this.importLib);
-
-    // libFileName = 'tinywebdb-meo.xml';
-    // this.getURL(this.resourceURL('libraries', libFileName), this.importLib);
+    intervalHandle = setInterval(function () {
+        libFileName = 'mqtt-blocks-meo-v1.0.xml';
+        myself.getURL(myself.resourceURL('libraries', libFileName), myself.importLib);
+        libFileName = 'tinywebdb-meo.xml';
+        myself.getURL(myself.resourceURL('libraries', libFileName), myself.importLib);
+        clearInterval(intervalHandle);
+    }, 2000);
 };

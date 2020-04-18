@@ -34,13 +34,6 @@
 				meo_ide = new Meo_Morph();
 				meo_ide.openIn(world);
 				loop();
-
-				// Import MQTT Library
-				var libFileName = 'mqtt-blocks-meo-v1.0.xml';
-				meo_ide.getURL(meo_ide.resourceURL('libraries', libFileName), meo_ide.importLib);
-			
-				libFileName = 'tinywebdb-meo.xml';
-				meo_ide.getURL(meo_ide.resourceURL('libraries', libFileName), meo_ide.importLib);
 			}
 			function loop() {
 				requestAnimationFrame(loop);

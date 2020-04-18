@@ -4,4 +4,5 @@
 /meoCloud/
 /.vscode
 .jshintrc
+/src/meoCloud/.env
 package-lock.json
