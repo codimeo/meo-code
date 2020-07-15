@@ -76,6 +76,7 @@ Meo_Morph.prototype.init = function () {
 
     // Remplacer certaines propriétés de base :
     this.logoURL = this.resourceURL("meo-logo-complet-24x95.png"); 
+
     StageMorph.prototype.paletteColor = new Color(55, 0, 0);
     StageMorph.prototype.paletteTextColor = new Color(0, 255, 0);
 
